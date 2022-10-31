@@ -1,0 +1,12 @@
+{
+  "name": "teju-pepeu",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/1NxT/teju-pepeu.git",
+  "author": "Guilherme Rodrigues Oliveira <62958414+1NxT@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.26.0"
+  },
+  "dependencies": {}
+}
