@@ -2,13 +2,16 @@
   "name": "teju-pepeu",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "repository": "https://github.com/1NxT/teju-pepeu.git",
   "author": "Guilherme Rodrigues Oliveira <62958414+1NxT@users.noreply.github.com>",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^8.26.0"
+    "eslint": "^8.26.0",
+    "nodemon": "^2.0.20"
   },
   "dependencies": {
+    "discord.js": "^14.6.0",
     "dotenv": "^16.0.3"
   }
 }
