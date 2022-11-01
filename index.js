@@ -1,10 +1,5 @@
-import 'dotenv/config';
-import { Client, Events, GatewayIntentBits } from 'discord.js';
+import client from './src/config/DiscordBot.js';
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-client.once(Events.ClientReady, c => {
-	console.log(c.user.tag);
-});
-
+// Start discord bot
 client.login(process.env.TOKEN);
