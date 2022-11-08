@@ -1,34 +1,34 @@
 import client from '../config/MongoDb.js';
 
-export class User {
+export class Bot {
 	constructor() {
 		this.client = client;
 		this.database = this.client.db(process.env.MONGODB_DATABASE);
-		this.users = this.database.collection('users');
+		this.users = this.database.collection('bot_configs');
 	}
 
-	async findOrCreate(userDados) {
+	async findOrCreate(botDados) {
 		try {
 			const filter = {
-				'user_id': userDados.user_id,
+				'id': botDados.id,
 			};
 
 			const options = {
 				'returnOriginal': false,
 				'upsert': true,
 			};
-
 			const doc = {
 				'$set': {
-					'user_id': userDados.user_id,
-					'user_avatar': userDados.user_avatar,
+					'id': botDados.id,
+					'username': botDados.username,
+					'discriminator': botDados.discriminator,
+					'avatar': botDados.avatar,
 				},
 			};
 			this.users.findOneAndUpdate(filter, doc, options);
-
 		}
 		finally {
-			this.client.rel;
+			this.client.close();
 		}
 	}
 }

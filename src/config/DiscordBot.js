@@ -1,11 +1,21 @@
 import 'dotenv/config';
 import { Client, Events, GatewayIntentBits } from 'discord.js';
+import { Bot } from '../services/Bot.js';
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const discordClient = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-client.once(Events.ClientReady, c => {
+discordClient.once(Events.ClientReady, async (c) => {
+	const botService = new Bot;
+	const botDados = {
+		'id': c.user.id,
+		'username': c.user.username,
+		'discriminator': c.user.discriminator,
+		'avatar': c.user.avatar,
+	};
+	await botService.findOrCreate(botDados);
+
 	console.log(`${c.user.tag}`);
 });
 
 
-export default client;
+export default discordClient;
