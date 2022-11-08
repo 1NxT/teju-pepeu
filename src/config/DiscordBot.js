@@ -1,21 +1,29 @@
-import 'dotenv/config';
-import { Client, Events, GatewayIntentBits } from 'discord.js';
-import { Bot } from '../services/Bot.js';
+require('dotenv/config');
+var Client, 
+	GatewayIntentBits, 
+	Intents = require('discord.js');
+import { join, dirname } from 'path';
+import { readdirSync } from 'fs';
 
-const discordClient = new Client({ intents: [GatewayIntentBits.Guilds] });
+// __dirname undefined resolve
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-discordClient.once(Events.ClientReady, async (c) => {
-	const botService = new Bot;
-	const botDados = {
-		'id': c.user.id,
-		'username': c.user.username,
-		'discriminator': c.user.discriminator,
-		'avatar': c.user.avatar,
-	};
-	await botService.findOrCreate(botDados);
+const discordClient = new Client({ intents: [GatewayIntentBits.Guilds, Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const eventsPath = join(__dirname, '../events');
+const eventFiles = readdirSync(eventsPath).filter(file => file.endsWith('.js'));
 
-	console.log(`${c.user.tag}`);
+eventFiles.forEach(async (file) => {
+	const filePath = join(eventsPath, file);
+	const event = await import(pathToFileURL(filePath));
+
+	if (event.once) {
+		discordClient.once(event.name, (...args) => event.execute(...args));
+	}
+	else {
+		console.log(event);
+		discordClient.on(event.name, (...args) => event.execute(...args));
+	}
 });
-
 
 export default discordClient;
