@@ -6,7 +6,7 @@
   "author": "Guilherme Rodrigues Oliveira <62958414+1NxT@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "devDependencies": {
     "eslint": "^8.26.0",

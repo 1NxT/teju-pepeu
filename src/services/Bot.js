@@ -1,6 +1,6 @@
-import client from '../config/MongoDb.js';
+const client = require('../config/MongoDb');
 
-export class Bot {
+class Bot {
 	constructor() {
 		this.client = client;
 		this.database = this.client.db(process.env.MONGODB_DATABASE);
@@ -32,3 +32,5 @@ export class Bot {
 		}
 	}
 }
+
+module.exports = Bot;
