@@ -6,6 +6,7 @@
   "author": "Guilherme Rodrigues Oliveira <62958414+1NxT@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
+    "predev": "node deploy-commands.js",
     "dev": "nodemon index.js"
   },
   "devDependencies": {
