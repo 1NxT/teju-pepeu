@@ -7,8 +7,8 @@ module.exports = {
 
 		if (message.content.includes('@here') || message.content.includes('@everyone') || message.type == 'REPLY') return false;
 
-		// if (message.mentions.has(client.user.id)) {
-		message.channel.send('Hello there!');
-	// }
+		if (message.mentions.has(process.env.CLIENT_ID)) {
+			message.channel.send('Hello there!');
+		}
 	},
 };
