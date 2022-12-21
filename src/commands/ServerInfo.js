@@ -9,10 +9,10 @@ module.exports = {
 		const exampleEmbed = new EmbedBuilder()
 			.setColor(0x36393e)
 			// .setTitle(`${interaction.member.guild.name}`)
-			.setAuthor({ name: 'INFORMAÇÕES DO SERVER', iconURL: `https://cdn.discordapp.com/icons/${interaction.member.guild.id}/${interaction.member.guild.icon}.gif` })
+			.setAuthor({ name: `${interaction.member.guild.name}`, iconURL: `https://cdn.discordapp.com/icons/${interaction.member.guild.id}/${interaction.member.guild.icon}.gif` })
 			// .setThumbnail(`https://cdn.discordapp.com/icons/${interaction.member.guild.id}/${interaction.member.guild.icon}.gif`)
 			.addFields(
-				{ name: 'SERVER NOME', value: `${interaction.member.guild.name}` },
+				{ name: 'Informações do server' },
 			)
 			.addFields({ name: 'Inline field title', value: 'Some value here', inline: true })
 			.setTimestamp()
