@@ -15,6 +15,11 @@ module.exports = {
 		if (interaction.guild.members.me.voice.channelId && interaction.member.voice.channelId !== interaction.guild.members.me.voice.channelId) return await interaction.reply({ content: 'Eu já estou em um canal de voz!', ephemeral: true });
 		const query = interaction.options.getString('query');
 		const queue = player.createQueue(interaction.guild, {
+			ytdlOptions: {
+				filter: 'audioonly',
+				highWaterMark: 1 << 30,
+				dlChunkSize: 0,
+			},
 			metadata: {
 				channel: interaction.channel,
 			},
@@ -30,13 +35,14 @@ module.exports = {
 		}
 
 		await interaction.deferReply();
-		const track = await player.search(query, {
+		const searchResult = await player.search(query, {
 			requestedBy: interaction.user,
-		}).then(x => x.tracks[0]);
-		if (!track) return await interaction.followUp({ content: `❌ | Música **${query}** não encontrada!` });
+		});
+		await interaction.followUp({ content: `⏱️ | Carregando ${searchResult.playlist ? 'músicas' : 'música'}!` });
 
-		queue.play(track);
+		if (!searchResult) return await interaction.followUp({ content: '❌ | Sem resultados!' });
+		searchResult.playlist ? queue.addTracks(searchResult.tracks) : queue.addTrack(searchResult.tracks);
 
-		return await interaction.followUp({ content: `⏱️ | Carregando música **${track.title}**!` });
+		if (!queue.playing) await queue.play();
 	},
 };

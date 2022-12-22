@@ -8,11 +8,11 @@ module.exports = {
 	async execute(interaction) {
 		const exampleEmbed = new EmbedBuilder()
 			.setColor(0x36393e)
-			// .setTitle(`${interaction.member.guild.name}`)
+			.setTitle(`${interaction.member.guild.name}`)
 			.setAuthor({ name: `${interaction.member.guild.name}`, iconURL: `https://cdn.discordapp.com/icons/${interaction.member.guild.id}/${interaction.member.guild.icon}.gif` })
 			// .setThumbnail(`https://cdn.discordapp.com/icons/${interaction.member.guild.id}/${interaction.member.guild.icon}.gif`)
 			.addFields(
-				{ name: 'Informações do server' },
+				{ name: 'Informações do server', value: 'teste' },
 			)
 			.addFields({ name: 'Inline field title', value: 'Some value here', inline: true })
 			.setTimestamp()
