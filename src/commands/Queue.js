@@ -45,7 +45,6 @@ module.exports = {
 			return e.title;
 		});
 
-		console.log(pages);
 		const embed = new EmbedBuilder()
 			.setColor(0x36393e)
 			.setAuthor({ name: `🎼 Queue: ${interaction.member.guild.name}`, iconURL: `https://cdn.discordapp.com/icons/${interaction.member.guild.id}/${interaction.member.guild.icon}.gif` })
