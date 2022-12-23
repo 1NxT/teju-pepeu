@@ -38,10 +38,10 @@ module.exports = {
 		const searchResult = await player.search(query, {
 			requestedBy: interaction.user,
 		});
-		await interaction.followUp({ content: `⏱️ | Carregando ${searchResult.playlist ? `\`${searchResult.tracks.length}\` músicas` : `**${searchResult.tracks[0].title}`}**` });
+		await interaction.followUp({ content: `⏱️ | Carregando ${searchResult.playlist ? `\`${searchResult.tracks.length}\` músicas` : `**${searchResult.tracks[0].title}**`}` });
 
 		if (!searchResult) return await interaction.followUp({ content: '❌ | Sem resultados!' });
-		searchResult.playlist ? queue.addTracks(searchResult.tracks) : queue.addTrack(searchResult.tracks);
+		searchResult.playlist ? queue.addTracks(searchResult.tracks) : queue.addTrack(searchResult.tracks[0]);
 
 		if (!queue.playing) await queue.play();
 	},
