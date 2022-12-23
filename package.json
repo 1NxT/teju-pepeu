@@ -6,8 +6,7 @@
   "author": "Guilherme Rodrigues Oliveira <62958414+1NxT@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "build": "",
-    "predev": "node deploy-commands-guild.js",
+    "build": "node deploy-commands-guild.js",
     "dev": "nodemon index.js --trace-warnings"
   },
   "devDependencies": {
@@ -26,6 +25,5 @@
     "spotify-url-info": "^3.1.10",
     "youtube-sr": "^4.3.4",
     "ytdl-core": "^4.11.2"
-  },
-  "packageManager": "yarn@3.3.1"
+  }
 }
