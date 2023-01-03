@@ -10,23 +10,23 @@ player.on('connectionError', (queue, error) => {
 });
 
 player.on('trackStart', (queue, track) => {
-	queue.metadata.channel.send(`🎶 | Started playing: **${track.title}** in **${queue.connection.channel.name}**!`);
+	queue.metadata.channel.send(`🎶 | Tocando: **${track.title}** em **${queue.connection.channel.name}**!`);
 });
 
 player.on('trackAdd', (queue, track) => {
-	queue.metadata.channel.send(`🎶 | Track **${track.title}** queued!`);
+	queue.metadata.channel.send(`🎶 | Música **${track.title}** colocada na fila!`);
 });
 
 player.on('botDisconnect', (queue) => {
-	queue.metadata.channel.send('❌ | I was manually disconnected from the voice channel, clearing queue!');
+	queue.metadata.channel.send('❌ | Fui desconectado do canal, limpando fila!');
 });
 
 player.on('channelEmpty', (queue) => {
-	queue.metadata.channel.send('❌ | Nobody is in the voice channel, leaving...');
+	queue.metadata.channel.send('❌ | Sozinho no canal... saindo.');
 });
 
 player.on('queueEnd', (queue) => {
-	queue.metadata.channel.send('✅ | Queue finished!');
+	queue.metadata.channel.send('✅ | Fim da fila!');
 });
 
 module.exports.player = player;

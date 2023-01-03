@@ -35,7 +35,7 @@ module.exports = {
 		tracks.filter((e) => {
 			let titulo = '';
 			if (e.title.length > 57) {
-				titulo = '🎤 - ' + e.title.substring(0, 61).trim() + '...';
+				titulo = '🎤 - ' + e.title.substring(0, 59).trim() + '...';
 			}
 			else {
 				titulo = '🎤 - ' + e.title;
@@ -49,7 +49,7 @@ module.exports = {
 			.setColor(0x36393e)
 			.setAuthor({ name: `🎼 Queue: ${interaction.member.guild.name}`, iconURL: `https://cdn.discordapp.com/icons/${interaction.member.guild.id}/${interaction.member.guild.icon}.gif` })
 			// .setAuthor({ name: `${interaction.member.guild.name}`, iconURL: `https://cdn.discordapp.com/icons/${interaction.member.guild.id}/${interaction.member.guild.icon}.gif` })
-			// .setThumbnail(`https://cdn.discordapp.com/icons/${interaction.member.guild.id}/${interaction.member.guild.icon}.gif`)
+			.setThumbnail(`${queue.current.thumbnail}`)
 			.addFields(
 				{ name: '🎧 Música tocando', value: `\`${queue.current}\``, inline: true },
 				{ name:  `${progress}`, value: '\u200B' },
