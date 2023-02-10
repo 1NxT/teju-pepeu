@@ -4,7 +4,6 @@ const { discordClient } = require('./DiscordBot.js');
 const eventsPath = join(__dirname, '../events');
 const eventFiles = readdirSync(eventsPath).filter(file => file.endsWith('.js'));
 
-// Registrando eventos
 eventFiles.forEach(async (file) => {
 	try {
 		const filePath = join(eventsPath, file);
