@@ -6,6 +6,7 @@
   "author": "Guilherme Rodrigues Oliveira <62958414+1NxT@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
+    "prebuild": "yarn install",
     "build": "node deploy-commands-guild.js",
     "dev": "nodemon index.js --trace-warnings",
     "start": "node index.js",
