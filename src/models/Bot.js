@@ -1,5 +1,5 @@
-export class BotModel {
-    async findOrCreate(botDados) {
+class BotModel {
+	async findOrCreate(botDados) {
 		try {
 			const filter = {
 				'id': botDados.id,
@@ -24,3 +24,5 @@ export class BotModel {
 		}
 	}
 }
+
+module.exports = BotModel;

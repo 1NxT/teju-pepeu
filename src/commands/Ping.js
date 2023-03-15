@@ -9,7 +9,6 @@ module.exports = {
 		const embed = new EmbedBuilder()
 			.setColor(0x36393e)
 			.setAuthor({ name: `${interaction.member.guild.name}`, iconURL: `https://cdn.discordapp.com/icons/${interaction.member.guild.id}/${interaction.member.guild.icon}.gif` })
-		// .setThumbnail(`https://cdn.discordapp.com/icons/${interaction.member.guild.id}/${interaction.member.guild.icon}.gif`)
 			.addFields(
 				{ name: 'Ping', value: `${Date.now() - interaction.createdTimestamp}ms` },
 			)

@@ -35,7 +35,6 @@ module.exports = {
 
 				// Buscar embeds
 				const embeds = interaction.message.embeds;
-				// console.log(embeds[0].data.footer.text);
 				// Paginar
 				const pages = [];
 				let page = 1;

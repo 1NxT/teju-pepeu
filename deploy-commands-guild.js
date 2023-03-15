@@ -15,7 +15,6 @@ for (const file of commandFiles) {
 // Construct and prepare an instance of the REST module
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
-// Deploy commands globalmente
 (async () => {
 	try {
 		console.log(`Iniciando deploy de ${commands.length}(/) comandos.`);

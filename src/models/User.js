@@ -1,5 +1,5 @@
-export class UserModel {
-    async findOrCreate(userDados) {
+class UserModel {
+	async findOrCreate(userDados) {
 		try {
 			const filter = {
 				'user_id': userDados.user_id,
@@ -24,3 +24,5 @@ export class UserModel {
 		}
 	}
 }
+
+module.exports = UserModel;
