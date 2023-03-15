@@ -1,13 +1,15 @@
 FROM node:alpine
 
-RUN apk add  --no-cache ffmpeg
+RUN apk add --no-cache ffmpeg
 
 WORKDIR /app
 
+COPY package.json .
+
+RUN yarn install
+
 COPY . .
 
-RUN npm install
-
-RUN npm run build
+RUN yarn build
 
 CMD [ "node" , "index.js" ]
