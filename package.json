@@ -22,7 +22,7 @@
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
     "ffmpeg-static": "^5.1.0",
-    "mongodb": "^4.11.0",
+    "mongodb": "^4.15.0",
     "soundcloud-scraper": "^5.0.3",
     "spotify-url-info": "^3.1.10",
     "youtube-sr": "^4.3.4",
